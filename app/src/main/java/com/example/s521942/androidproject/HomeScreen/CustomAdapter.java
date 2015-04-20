@@ -2,6 +2,7 @@ package com.example.s521942.androidproject.HomeScreen; /**
  * Created by S521731 on 4/4/2015.
  */
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import com.example.s521942.androidproject.R;
 
 public class CustomAdapter extends BaseAdapter{
+    Typeface micky;
 
     String [] result;
     Context context;
@@ -61,6 +63,10 @@ public class CustomAdapter extends BaseAdapter{
         rowView = inflater.inflate(R.layout.layout, null);
         holder.tv=(TextView) rowView.findViewById(R.id.textView1);
         holder.img=(ImageView) rowView.findViewById(R.id.imageView1);
+
+
+        micky=Typeface.createFromAsset(rowView.getContext().getAssets(),"fonts/funky.otf");
+        holder.tv.setTypeface(micky);
 
         holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);

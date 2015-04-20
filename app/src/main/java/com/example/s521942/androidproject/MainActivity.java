@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
 
 
@@ -32,6 +33,7 @@ Typeface typeface;
 //        gv=(GridView) findViewById(R.id.gridView1);
 //        gv.setAdapter(new CustomAdapter(this, prgmNameList,prgmImages));
         HomeGridFrag homeGridFrag=new HomeGridFrag();
+        EventsFragment eventsFragment=new EventsFragment();
 
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
