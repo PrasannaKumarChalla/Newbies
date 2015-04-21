@@ -1,6 +1,8 @@
 package com.example.s521942.androidproject.Events;
 
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -39,9 +41,10 @@ public class EventsFragment extends Fragment {
     static String Connectiontest="nothing yet";
     TextView textView;
     String JsonToParse;
+    ProgressDialog dialog;
 
-    final String url = "http://192.168.0.21:3000/api/events";
-    private List<Event> events = new ArrayList<Event>();
+    final String url = "http://192.168.0.14:3000/api/events";
+    private List<Event> events ;
     SimpleDateFormat dateFormat;
     private RecyclerView mRecyclerView;
     private MyRecyclerAdapter adapter;
@@ -54,6 +57,7 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_events,container,false);
+        events= new ArrayList<Event>();
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_viewEvents);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         new AsyncHttpTask().execute(url);
@@ -71,6 +75,11 @@ public class EventsFragment extends Fragment {
 
     public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
 
+        @Override
+        protected void onPreExecute() {
+            dialog.setMessage("Loading Events...");
+            dialog.show();
+        }
 
         @Override
         protected Integer doInBackground(String... params) {
@@ -112,18 +121,10 @@ public class EventsFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Integer result) {
-           // setProgressBarIndeterminateVisibility(false);
-            /* Download complete. Lets update UI */
-//            if (result == 1) {
-
-
-
                 adapter = new MyRecyclerAdapter(getActivity(), events);
             mRecyclerView.setAdapter(adapter);
 
-//            } else {
-//                Log.e("Fail", "Failed to fetch data!");
-//            }
+         dialog.dismiss();
         }
     }
 
@@ -142,7 +143,7 @@ public class EventsFragment extends Fragment {
                 JSONObject eventJObj = EventsJArray.getJSONObject(i);
                 //textView.setText(eventJObj.getString("date"));
                 //dateFormat=new SimpleDateFormat("yyyy-MM-ddEHH:mm:ss.SSSZ");
-                Event item = new Event(eventJObj.getString("name"),eventJObj.getString("desc"),eventJObj.getString("date"));
+                Event item = new Event(eventJObj.getString("name"),eventJObj.getString("desc"),eventJObj.getString("date").substring(0,10));
                 events.add(item);
 
             }
@@ -153,6 +154,9 @@ public class EventsFragment extends Fragment {
         }
     }
 
-
-
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        dialog= new ProgressDialog(activity);
+    }
 }

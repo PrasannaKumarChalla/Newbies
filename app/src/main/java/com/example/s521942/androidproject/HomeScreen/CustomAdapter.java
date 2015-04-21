@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.s521942.androidproject.MainActivity;
 import com.example.s521942.androidproject.R;
 
 public class CustomAdapter extends BaseAdapter{
@@ -76,7 +77,15 @@ public class CustomAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+             switch (position) {
+                 case 0:
+                 ((MainActivity) context).onEventsClick();
+                 break;
+                 default:
+                     Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
+                     break;
+             }
             }
         });
 
