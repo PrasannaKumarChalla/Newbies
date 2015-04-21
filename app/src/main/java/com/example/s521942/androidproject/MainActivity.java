@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
+import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
 
 
 public class MainActivity extends Activity {
@@ -23,6 +24,7 @@ FragmentTransaction fragmentTransaction;
 FragmentManager fragmentManager;
     HomeGridFrag homeGridFrag;
     EventsFragment eventsFragment;
+    RegistrationFragment registrationFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,7 @@ FragmentManager fragmentManager;
         welcome.setTypeface(typeface);
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
+        registrationFragment=new RegistrationFragment();
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -63,6 +66,12 @@ FragmentManager fragmentManager;
     public void onEventsClick(){
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.mainFrameLayout,eventsFragment);
+        fragmentTransaction.addToBackStack("events fragment");
+        fragmentTransaction.commit();
+    }
+    public void onIncomingClick(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayout,registrationFragment);
         fragmentTransaction.addToBackStack("events fragment");
         fragmentTransaction.commit();
     }

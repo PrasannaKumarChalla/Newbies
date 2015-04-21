@@ -25,7 +25,7 @@ public class EventsRowHolder extends RecyclerView.ViewHolder {
 
     public EventsRowHolder(View itemView) {
         super(itemView);
-        Typeface typeface=Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/Lmilk.otf");
+        Typeface typeface=Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/funky.otf");
         Typeface funky=Typeface.createFromAsset(itemView.getContext().getAssets(),"fonts/funky.otf");
         name=(TextView)itemView.findViewById(R.id.EventNameTV);
         name.setTypeface(funky);

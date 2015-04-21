@@ -82,6 +82,9 @@ public class CustomAdapter extends BaseAdapter{
                  case 0:
                  ((MainActivity) context).onEventsClick();
                  break;
+                 case 1:
+                     ((MainActivity) context).onIncomingClick();
+                     break;
                  default:
                      Toast.makeText(context, "You Clicked "+result[position], Toast.LENGTH_LONG).show();
                      break;
