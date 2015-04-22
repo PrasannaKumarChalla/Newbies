@@ -5,14 +5,39 @@
     android:id="@+id/homeGridParent">
 
     <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+
+            android:text="WELCOME"
+            android:textSize="60dp"
+            android:id="@+id/eventTitle"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:padding="7dp" />
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView"
+            android:src="@drawable/indianemblem"
+
+            android:layout_alignTop="@+id/eventTitle"
+            android:layout_alignParentStart="true" />
 
     <GridView
         android:id="@+id/homeGrid"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView1"
+        android:layout_marginTop="130dp"
         android:numColumns="2"
         android:layout_gravity="center_horizontal|top" />
+    </RelativeLayout>
+
 </FrameLayout>
