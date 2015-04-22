@@ -31,9 +31,8 @@ FragmentManager fragmentManager;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       typeface=Typeface.createFromAsset(getAssets(),"fonts/Transformers.ttf");
-        welcome=(TextView)findViewById(R.id.welcome);
-        welcome.setTypeface(typeface);
+
+
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();

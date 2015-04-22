@@ -3,6 +3,7 @@ package com.example.s521942.androidproject.Events;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -39,9 +40,10 @@ import java.util.List;
  */
 public class EventsFragment extends Fragment {
     static String Connectiontest="nothing yet";
-    TextView textView;
+    TextView eventsTitle;
     String JsonToParse;
     ProgressDialog dialog;
+    Typeface lemon;
 
     final String url = "http://192.168.0.14:3000/api/events";
     private List<Event> events ;
@@ -57,6 +59,10 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_events,container,false);
+        lemon=Typeface.createFromAsset(view.getContext().getAssets(),"fonts/LemonMilk.otf");
+        eventsTitle=(TextView)view.findViewById(R.id.eventTitle);
+        eventsTitle.setTypeface(lemon);
+
         events= new ArrayList<Event>();
         mRecyclerView = (RecyclerView)view.findViewById(R.id.recycler_viewEvents);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
