@@ -10,6 +10,10 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 
 import com.example.s521942.androidproject.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,9 +40,8 @@ import java.io.InputStreamReader;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StoresMap extends Fragment {
+public class StoresMap extends Fragment implements AdapterView.OnItemSelectedListener {
 
-    static final LatLng locat = new LatLng(21 , 57);
     private GoogleMap mMap;
     Marker mMarker;
     LocationManager lm;
@@ -46,9 +49,13 @@ public class StoresMap extends Fragment {
     private final int MAX_PLACES = 20;
     private MarkerOptions[] places;
     String placesSearchStr;
+    Spinner spinner;
     Double lat,lng;
+    String placeInterested="store|food";
 
-    private String[] ListOfIntersts={"store","food","hospital","night_club"};
+
+
+    private String[] ListOfIntersts={"Stores","Food","Gas station","Library"};
 
 
     public StoresMap() {
@@ -60,11 +67,30 @@ public class StoresMap extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_stores_map, container, false);
-           setUpMapIfNeeded();
+        spinner = (Spinner)view.findViewById(R.id.spinner1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item,ListOfIntersts);
+        Button button=(Button)view.findViewById(R.id.SearchB);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMap.clear();
+                placesSearchStr="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1000&types="+placeInterested+"&key=AIzaSyAoL9hxUdPf4x6UgeY1Vc2LO4qiQw6iTrQ";
+                new GetPlaces().execute(placesSearchStr);
+
+
+            }
+        });
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
+
+        setUpMapIfNeeded();
         String provider=lm.getBestProvider(new Criteria(), true);
         Location loc=lm.getLastKnownLocation(provider);
         lat=loc.getLatitude();lng=loc.getLongitude();
-        placesSearchStr="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1000&types=food&key=AIzaSyBeHb9mtrDW4oiBWIDgnToBm4uwItxt8uA";
+        placesSearchStr="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1000&types=store&key=AIzaSyAoL9hxUdPf4x6UgeY1Vc2LO4qiQw6iTrQ";
 
         new GetPlaces().execute(placesSearchStr);
 
@@ -74,12 +100,13 @@ public class StoresMap extends Fragment {
     private GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
         @Override
         public void onMyLocationChange(Location location) {
-            mMap.clear();
+            //mMap.clear();
+            if(mMarker!=null) mMarker.remove();
             LatLng latlng=new LatLng(location.getLatitude(),location.getLongitude());// This methods gets the users current longitude and latitude.
-            mMarker = mMap.addMarker(new MarkerOptions().position(latlng).title("You are here"));
+            mMarker = mMap.addMarker(new MarkerOptions().position(latlng).title("You are here").alpha(290));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));//Moves the camera to users current longitude and latitude
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15.0f));//Animates camera and zooms to preferred state on the user's current location.
-            new GetPlaces().execute(placesSearchStr);
+
         }
     };
     private void setUpMapIfNeeded(){
@@ -92,6 +119,7 @@ public class StoresMap extends Fragment {
               mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
               placeMarkers = new Marker[MAX_PLACES];
                mMap.getUiSettings().setZoomControlsEnabled(true);
+               mMap.getUiSettings().setAllGesturesEnabled(true);
              lm =(LocationManager)getActivity().getSystemService(getActivity().LOCATION_SERVICE);//use of location services by firstly defining location manager.
                 String provider=lm.getBestProvider(new Criteria(), true);
                 Location loc=lm.getLastKnownLocation(provider);
@@ -104,6 +132,32 @@ public class StoresMap extends Fragment {
 
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position) {
+            case 0:
+                placeInterested="store";
+                break;
+            case 1:
+
+                placeInterested="food";
+                break;
+            case 2:
+                placeInterested="gas_station";
+                break;
+            case 3:
+                placeInterested="library";
+                break;
+            default:
+                placeInterested="store|food";
+
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        placeInterested="store|food|hospital|night_club";
+    }
 
 
     private class GetPlaces extends AsyncTask<String, Void, String> {

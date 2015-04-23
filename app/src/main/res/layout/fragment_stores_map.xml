@@ -17,4 +17,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="100dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/SearchB"
+        android:layout_below="@+id/spinner1"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
