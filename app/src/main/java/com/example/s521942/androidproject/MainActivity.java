@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.s521942.androidproject.Bridge.BridgeFargment;
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
 import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
@@ -25,6 +26,7 @@ FragmentManager fragmentManager;
     HomeGridFrag homeGridFrag;
     EventsFragment eventsFragment;
     RegistrationFragment registrationFragment;
+    BridgeFargment bridgeFargment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ FragmentManager fragmentManager;
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();
+        bridgeFargment=new BridgeFargment();
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -74,6 +77,7 @@ FragmentManager fragmentManager;
         fragmentTransaction.addToBackStack("events fragment");
         fragmentTransaction.commit();
     }
+
 
     @Override
     public void onBackPressed() {
