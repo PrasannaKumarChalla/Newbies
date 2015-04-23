@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
 import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
+import com.example.s521942.androidproject.StoreLocations.StoresMap;
 
 
 public class MainActivity extends Activity {
@@ -22,9 +23,10 @@ TextView welcome;
 Typeface typeface;
 FragmentTransaction fragmentTransaction;
 FragmentManager fragmentManager;
-    HomeGridFrag homeGridFrag;
-    EventsFragment eventsFragment;
-    RegistrationFragment registrationFragment;
+HomeGridFrag homeGridFrag;
+EventsFragment eventsFragment;
+StoresMap storesMap;
+RegistrationFragment registrationFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +38,11 @@ FragmentManager fragmentManager;
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();
+        storesMap=new StoresMap();
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.mainFrameLayout,homeGridFrag);
+        fragmentTransaction.add(R.id.mainFrameLayout,storesMap);
         fragmentTransaction.addToBackStack("home grid Fragment");
         fragmentTransaction.commit();
 
