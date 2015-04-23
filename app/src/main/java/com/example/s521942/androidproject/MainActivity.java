@@ -42,7 +42,7 @@ FragmentManager fragmentManager;
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.mainFrameLayout,homeGridFrag);
+        fragmentTransaction.add(R.id.mainFrameLayout,bridgeFargment);
         fragmentTransaction.addToBackStack("home grid Fragment");
         fragmentTransaction.commit();
 
