@@ -28,6 +28,8 @@ EventsFragment eventsFragment;
 StoresMap storesMap;
 RegistrationFragment registrationFragment;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,7 @@ RegistrationFragment registrationFragment;
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.mainFrameLayout,storesMap);
+        fragmentTransaction.add(R.id.mainFrameLayout,homeGridFrag);
         fragmentTransaction.addToBackStack("home grid Fragment");
         fragmentTransaction.commit();
 
@@ -75,6 +77,12 @@ RegistrationFragment registrationFragment;
         fragmentTransaction=fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.mainFrameLayout,registrationFragment);
         fragmentTransaction.addToBackStack("events fragment");
+        fragmentTransaction.commit();
+    }
+    public void onStoresClick(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayout,storesMap);
+        fragmentTransaction.addToBackStack("Stores");
         fragmentTransaction.commit();
     }
 
