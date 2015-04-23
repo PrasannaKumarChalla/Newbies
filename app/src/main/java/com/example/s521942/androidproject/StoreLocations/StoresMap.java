@@ -19,6 +19,7 @@ import com.example.s521942.androidproject.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -51,9 +52,35 @@ public class StoresMap extends Fragment implements AdapterView.OnItemSelectedLis
     String placesSearchStr;
     Spinner spinner;
     Double lat,lng;
+    private CameraPosition cp;
     String placeInterested="store|food";
 
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
+    @Override
+    public void onPause() {
+
+        super.onPause();
+
+        cp = mMap.getCameraPosition();
+        mMap = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        setUpMapIfNeeded();
+        //mMapView.onResume();
+        if (cp != null) {
+            mMap.moveCamera(CameraUpdateFactory.newCameraPosition(cp));
+            cp = null;
+        }
+    }
 
     private String[] ListOfIntersts={"Stores","Food","Gas station","Library"};
 
@@ -67,6 +94,7 @@ public class StoresMap extends Fragment implements AdapterView.OnItemSelectedLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_stores_map, container, false);
+        setRetainInstance(true);
         spinner = (Spinner)view.findViewById(R.id.spinner1);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_spinner_item,ListOfIntersts);

@@ -45,7 +45,7 @@ public class EventsFragment extends Fragment {
     ProgressDialog dialog;
     Typeface lemon;
 
-    final String url = "http://192.168.0.24:3000/api/events";
+    final String url = "http://192.168.0.12:3000/api/events";
     private List<Event> events ;
     SimpleDateFormat dateFormat;
     private RecyclerView mRecyclerView;
