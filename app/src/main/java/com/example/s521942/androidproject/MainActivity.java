@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.s521942.androidproject.Bridge.BridgeFargment;
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
 import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
@@ -27,6 +28,7 @@ HomeGridFrag homeGridFrag;
 EventsFragment eventsFragment;
 StoresMap storesMap;
 RegistrationFragment registrationFragment;
+BridgeFargment bridgeFargment;
 
 
 
@@ -40,6 +42,7 @@ RegistrationFragment registrationFragment;
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();
+        bridgeFargment=new BridgeFargment();
         storesMap=new StoresMap();
 
        fragmentManager=getFragmentManager();
@@ -84,6 +87,13 @@ RegistrationFragment registrationFragment;
         fragmentTransaction.replace(R.id.mainFrameLayout,storesMap);
         fragmentTransaction.addToBackStack("Stores");
         fragmentTransaction.commit();
+    }
+    public void onBridgeClick(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayout,bridgeFargment);
+        fragmentTransaction.addToBackStack("bridge");
+        fragmentTransaction.commit();
+
     }
 
     @Override
