@@ -30,7 +30,7 @@ StoresMap storesMap;
 RegistrationFragment registrationFragment;
 BridgeFargment bridgeFargment;
 
-
+//adding
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
