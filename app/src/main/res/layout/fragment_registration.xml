@@ -1,181 +1,199 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.s521942.androidproject.IncomingStudents.RegistrationFragment"
-    android:id="@+id/r">
+    android:layout_height="match_parent" tools:context="com.example.s521950.project.Registration">
 
+    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:text="Register Here! "
-        android:id="@+id/textView" android:layout_gravity="center"
-        android:layout_alignParentTop="true"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal|top" >
 
-        android:layout_centerHorizontal="true"
-        android:textColor="#fb676467"
-        android:textStyle="bold"
-        android:textSize="50dp" />
-    <TextView
-        android:layout_width="125dp"
-        android:layout_height="80dp"
-        android:text=" Name:"
-        android:id="@+id/textView2"
-        android:textColor="#000000"
-        android:textSize="25dp"
-        android:layout_below="@+id/textView"
-        android:layout_alignStart="@+id/textView"
-        android:textAlignment="gravity" />
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:text="Register Here! "
+                android:id="@+id/textView" android:layout_gravity="center"
+                android:layout_alignParentTop="true"
 
-    <TextView
-        android:layout_width="125dp"
-        android:layout_height="80dp"
-        android:text="919#:"
-        android:textColor="#000000"
-        android:id="@+id/textView3"
-        android:textSize="25dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2"
-        android:textAlignment="gravity" />
+                android:layout_centerHorizontal="true"
+                android:textColor="#fb676467"
+                android:textStyle="bold"
+                android:textSize="50dp" />
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:text=" Name:"
+                android:id="@+id/textView2"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:layout_below="@+id/textView"
+                android:layout_alignStart="@+id/textView"
+                android:textAlignment="gravity" />
 
-    <TextView
-        android:layout_width="125dp"
-        android:layout_height="80dp"
-        android:textColor="#000000"
-        android:text="Email:"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_alignRight="@+id/textView3"
-        android:textSize="25dp"
-        android:textAlignment="gravity" />
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:text="919#:"
+                android:textColor="#000000"
+                android:id="@+id/textView3"
+                android:textSize="25dp"
+                android:layout_below="@+id/textView2"
+                android:layout_alignEnd="@+id/textView2"
+                android:textAlignment="gravity" />
 
-    <TextView
-        android:layout_width="125dp"
-        android:layout_height="80dp"
-        android:textColor="#000000"
-        android:text="Phone :"
-        android:id="@+id/textView5"
-        android:layout_below="@+id/textView4"
-        android:layout_alignRight="@+id/textView4"
-        android:textSize="25dp"
-        android:textAlignment="gravity" />
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:textColor="#000000"
+                android:text="Email:"
+                android:id="@+id/textView4"
+                android:layout_below="@+id/textView3"
+                android:layout_alignRight="@+id/textView3"
+                android:textSize="25dp"
+                android:textAlignment="gravity" />
 
-    <TextView
-        android:layout_width="125dp"
-        android:layout_height="80dp"
-        android:textColor="#000000"
-        android:text="Pickup: "
-        android:id="@+id/textView6"
-        android:layout_alignRight="@+id/textView5"
-        android:textSize="25dp"
-        android:layout_below="@+id/textView5"
-        android:textAlignment="gravity" />
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:textColor="#fcfaf8fc"
-        android:text="Register"
-        android:id="@+id/register"
-        android:textSize="30dp"
-        android:onClick="Register"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:background="#fb676467"
-        android:layout_marginBottom="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginLeft="50dp" />
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:textColor="#000000"
+                android:text="Phone :"
+                android:id="@+id/textView5"
+                android:layout_below="@+id/textView4"
+                android:layout_alignRight="@+id/textView4"
+                android:textSize="25dp"
+                android:textAlignment="gravity" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2"
+            <TextView
+                android:layout_width="125dp"
+                android:layout_height="80dp"
+                android:textColor="#000000"
+                android:text="Pickup: "
+                android:id="@+id/textView6"
+                android:layout_alignRight="@+id/textView5"
+                android:textSize="25dp"
+                android:layout_below="@+id/textView5"
+                android:textAlignment="gravity" />
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="80dp"
+                android:textColor="#fcfaf8fc"
+                android:text="Register"
+                android:id="@+id/register"
+                android:textSize="30dp"
+                android:onClick="Register"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:background="#fb676467"
+                android:layout_marginTop="650dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp" />
 
-        android:hint="919
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_below="@+id/textView2"
+                android:layout_toEndOf="@+id/textView2"
+
+                android:hint="919
         "/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/emailET"
-        android:layout_below="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
-        android:hint="Email address"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/emailET"
+                android:layout_below="@+id/textView3"
+                android:layout_toEndOf="@+id/textView3"
+                android:hint="Email address"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:id="@+id/pickupET"
-        android:singleLine="false"
-        android:layout_alignTop="@+id/textView6"
-        android:layout_alignStart="@+id/mobileET"
-        android:hint="pickup location" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/pickupET"
+                android:singleLine="false"
+                android:layout_alignTop="@+id/textView6"
+                android:layout_alignStart="@+id/mobileET"
+                android:hint="pickup location" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="phone"
-        android:ems="10"
-        android:id="@+id/mobileET"
-        android:hint="mobile number"
-        android:layout_below="@+id/textView4"
-        android:layout_alignEnd="@+id/textView" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:ems="10"
+                android:id="@+id/mobileET"
+                android:hint="mobile number"
+                android:layout_below="@+id/textView4"
+                android:layout_alignEnd="@+id/textView" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/nameET"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2"
-        android:hint="Name" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/nameET"
+                android:layout_alignTop="@+id/textView2"
+                android:layout_toEndOf="@+id/textView2"
+                android:hint="Name" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Date:"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:textSize="25dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Date:"
+                android:textColor="#000000"
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/dateET"
-        android:layout_below="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6"
-        android:hint="Pick up date" />
+                android:id="@+id/textView7"
+                android:layout_below="@+id/textView6"
+                android:layout_alignStart="@+id/textView6"
+                android:textSize="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Time:"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView7"
-        android:layout_alignStart="@+id/textView7"
-        android:textSize="25dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/dateET"
+                android:layout_below="@+id/textView6"
+                android:layout_toEndOf="@+id/textView6"
+                android:hint="Pick up date" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="10"
-        android:id="@+id/timeET"
-        android:hint="time"
-        android:layout_alignTop="@+id/textView8"
-        android:layout_alignStart="@+id/dateET" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Time:"
+                android:id="@+id/textView8"
+                android:layout_below="@+id/textView7"
+                android:layout_alignStart="@+id/textView7"
+                android:textSize="25dp" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/timeET"
+                android:layout_marginLeft="70dp"
+                android:layout_below="@+id/textView7"
+                android:layout_toEndOf="@+id/textView7"
+                android:hint="Time" />
 
-</RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+</FrameLayout>
+

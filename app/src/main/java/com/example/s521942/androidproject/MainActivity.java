@@ -18,6 +18,7 @@ import com.example.s521942.androidproject.Bridge.BridgeFargment;
 import com.example.s521942.androidproject.ContactInfo.ContactFragment;
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
+import com.example.s521942.androidproject.IncomingStudents.IncomingListFragment;
 import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
 import com.example.s521942.androidproject.StoreLocations.StoresMap;
 
@@ -33,6 +34,8 @@ EventsFragment eventsFragment;
 StoresMap storesMap;
 RegistrationFragment registrationFragment;
 BridgeFargment bridgeFargment;
+IncomingListFragment incomingListFragment;
+
 
     AccomodationName accomodationName;
     ContactFragment contactFragment;
@@ -52,6 +55,7 @@ accomodationName=new AccomodationName();
         bridgeFargment=new BridgeFargment();
         storesMap=new StoresMap();
         contactFragment=new ContactFragment();
+        incomingListFragment=new IncomingListFragment();
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -86,7 +90,7 @@ accomodationName=new AccomodationName();
     }
     public void onIncomingClick(){
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.mainFrameLayout,registrationFragment);
+        fragmentTransaction.replace(R.id.mainFrameLayout,incomingListFragment);
         fragmentTransaction.addToBackStack("events fragment");
         fragmentTransaction.commit();
     }
@@ -127,6 +131,15 @@ accomodationName=new AccomodationName();
         //fragmentTransaction.remove(homeGridFrag);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+    }
+    public void onNeedPickup(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.remove(incomingListFragment);
+        fragmentTransaction.replace(R.id.mainFrameLayout,registrationFragment);
+        //fragmentTransaction.remove(homeGridFrag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 
     @Override

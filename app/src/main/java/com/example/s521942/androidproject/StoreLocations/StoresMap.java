@@ -226,12 +226,12 @@ public class StoresMap extends Fragment implements AdapterView.OnItemSelectedLis
         protected void onPostExecute(String result) {
 
 
-//            if(placeMarkers!=null){
-//                for(int pm=0; pm<placeMarkers.length; pm++){
-//                    if(placeMarkers[pm]!=null)
-//                        placeMarkers[pm].remove();
-//                }
-//            }
+            if(placeMarkers!=null){
+                for(int pm=0; pm<placeMarkers.length; pm++){
+                    if(placeMarkers[pm]!=null)
+                        placeMarkers[pm].remove();
+                }
+            }
 
             try {
                 //parse JSON
