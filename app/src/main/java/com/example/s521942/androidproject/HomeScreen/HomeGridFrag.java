@@ -18,7 +18,7 @@ import com.example.s521942.androidproject.R;
  */
 public class HomeGridFrag extends Fragment {
     public static String [] prgmNameL={"Events","Incoming Students","Accomodation & facilities","Store locations","Conatct info","Bridge"};
-    public static int [] prgmImage={R.drawable.events,R.drawable.students,R.drawable.home,R.drawable.store,R.drawable.contact,R.drawable.a};
+    public static int [] prgmImage={R.drawable.events,R.drawable.students,R.drawable.home,R.drawable.store,R.drawable.contact,R.drawable.bridgenew};
     //MainActivity mainActivity=new MainActivity();
     TextView welcome;
     Typeface typeface;

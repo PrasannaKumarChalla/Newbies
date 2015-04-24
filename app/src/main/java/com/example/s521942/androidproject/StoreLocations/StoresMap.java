@@ -103,6 +103,7 @@ public class StoresMap extends Fragment implements AdapterView.OnItemSelectedLis
             @Override
             public void onClick(View v) {
                 mMap.clear();
+                placeMarkers = new Marker[MAX_PLACES];
                 placesSearchStr="https://maps.googleapis.com/maps/api/place/nearbysearch/json?location="+lat+","+lng+"&radius=1000&types="+placeInterested+"&key=AIzaSyAoL9hxUdPf4x6UgeY1Vc2LO4qiQw6iTrQ";
                 new GetPlaces().execute(placesSearchStr);
 

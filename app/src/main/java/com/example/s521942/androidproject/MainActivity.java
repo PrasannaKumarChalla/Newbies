@@ -34,7 +34,7 @@ StoresMap storesMap;
 RegistrationFragment registrationFragment;
 BridgeFargment bridgeFargment;
 
-    AccomodationName name;
+    AccomodationName accomodationName;
     ContactFragment contactFragment;
 
 //adding
@@ -45,7 +45,7 @@ BridgeFargment bridgeFargment;
         setContentView(R.layout.activity_main);
 
 
-name=new AccomodationName();
+accomodationName=new AccomodationName();
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();
@@ -105,7 +105,7 @@ name=new AccomodationName();
     }
     public void onAccomodateClick(){
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.mainFrameLayout,name);
+        fragmentTransaction.replace(R.id.mainFrameLayout,accomodationName);
         //fragmentTransaction.remove(homeGridFrag);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
@@ -121,11 +121,18 @@ name=new AccomodationName();
             super.onBackPressed();
         }
     }
+    public void onContactClicked(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayout,contactFragment);
+        //fragmentTransaction.remove(homeGridFrag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
     @Override
     public void onAccomodationSelected(Accomodation.DummyItem di) {
         FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
-        fragmentTransaction.remove(name);
+        fragmentTransaction.remove(accomodationName);
         AccomodationWeb accomodationWeb=new AccomodationWeb();
         fragmentTransaction.replace(R.id.mainFrameLayout,AccomodationWeb.newInstance(di.url));
         fragmentTransaction.addToBackStack(null);

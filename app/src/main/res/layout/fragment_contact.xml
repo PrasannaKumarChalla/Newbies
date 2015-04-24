@@ -14,7 +14,7 @@
         xmlns:cardview="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card2"
         android:layout_width="match_parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_height="225dp"
@@ -82,7 +82,7 @@
 
 
             android:layout_gravity="left|top"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_below="@+id/card2"
             android:layout_alignStart="@+id/card2">
             <TextView
