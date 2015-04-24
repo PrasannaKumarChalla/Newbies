@@ -6,6 +6,7 @@
     tools:context="com.example.s521942.androidproject.ContacInfo.ContactFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -29,7 +30,7 @@
             android:layout_height="50dp"
             android:textStyle="bold"
             android:textSize="35dp"
-                       android:textColor="#ff525452"
+            android:textColor="#ff525452"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="                     President"
             android:fontFamily="@string/abc_action_bar_home_description"

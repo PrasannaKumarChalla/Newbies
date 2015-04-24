@@ -78,7 +78,7 @@ RelativeLayout rl;
                 cv.setBackgroundResource(getItem(position).imageID);
 
                 tv.setText(getItem(position).id);
-                ObjectAnimator obj=ObjectAnimator.ofFloat(tv,"Y",800f);
+                ObjectAnimator obj=ObjectAnimator.ofFloat(tv,"Y",375f);
                 obj.setDuration(3000);
                 obj.start();
 //                ImageView iv=(ImageView)view.findViewById(R.id.imageView);
