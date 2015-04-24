@@ -90,7 +90,7 @@ accomodationName=new AccomodationName();
     }
     public void onIncomingClick(){
         fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.mainFrameLayout,incomingListFragment);
+        fragmentTransaction.replace(R.id.mainFrameLayout,registrationFragment);
         fragmentTransaction.addToBackStack("events fragment");
         fragmentTransaction.commit();
     }

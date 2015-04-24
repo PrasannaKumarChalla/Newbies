@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/idET"
                 android:layout_below="@+id/textView2"
                 android:layout_toEndOf="@+id/textView2"
 
@@ -175,6 +175,7 @@
                 android:layout_height="80dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Time:"
+                android:inputType="time"
                 android:id="@+id/textView8"
                 android:layout_below="@+id/textView7"
                 android:layout_alignStart="@+id/textView7"
@@ -188,7 +189,7 @@
                 android:layout_marginLeft="70dp"
                 android:layout_below="@+id/textView7"
                 android:layout_toEndOf="@+id/textView7"
-                android:hint="Time" />
+                android:hint="hh.mm am/pm" />
 
         </RelativeLayout>
     </ScrollView>
