@@ -11,14 +11,18 @@ import android.view.View;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.example.s521942.androidproject.Accomodations.Accomodation;
+import com.example.s521942.androidproject.Accomodations.AccomodationName;
+import com.example.s521942.androidproject.Accomodations.AccomodationWeb;
 import com.example.s521942.androidproject.Bridge.BridgeFargment;
+import com.example.s521942.androidproject.ContactInfo.ContactFragment;
 import com.example.s521942.androidproject.Events.EventsFragment;
 import com.example.s521942.androidproject.HomeScreen.HomeGridFrag;
 import com.example.s521942.androidproject.IncomingStudents.RegistrationFragment;
 import com.example.s521942.androidproject.StoreLocations.StoresMap;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements AccomodationName.OnAccomodationInteractionListener {
 GridView gv;
 TextView welcome;
 Typeface typeface;
@@ -30,6 +34,9 @@ StoresMap storesMap;
 RegistrationFragment registrationFragment;
 BridgeFargment bridgeFargment;
 
+    AccomodationName name;
+    ContactFragment contactFragment;
+
 //adding
 
     @Override
@@ -38,12 +45,13 @@ BridgeFargment bridgeFargment;
         setContentView(R.layout.activity_main);
 
 
-
+name=new AccomodationName();
         homeGridFrag=new HomeGridFrag();
        eventsFragment=new EventsFragment();
         registrationFragment=new RegistrationFragment();
         bridgeFargment=new BridgeFargment();
         storesMap=new StoresMap();
+        contactFragment=new ContactFragment();
 
        fragmentManager=getFragmentManager();
         fragmentTransaction=fragmentManager.beginTransaction();
@@ -95,6 +103,14 @@ BridgeFargment bridgeFargment;
         fragmentTransaction.commit();
 
     }
+    public void onAccomodateClick(){
+        fragmentTransaction=fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.mainFrameLayout,name);
+        //fragmentTransaction.remove(homeGridFrag);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
 
     @Override
     public void onBackPressed() {
@@ -104,5 +120,15 @@ BridgeFargment bridgeFargment;
         else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onAccomodationSelected(Accomodation.DummyItem di) {
+        FragmentTransaction fragmentTransaction=getFragmentManager().beginTransaction();
+        fragmentTransaction.remove(name);
+        AccomodationWeb accomodationWeb=new AccomodationWeb();
+        fragmentTransaction.replace(R.id.mainFrameLayout,AccomodationWeb.newInstance(di.url));
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

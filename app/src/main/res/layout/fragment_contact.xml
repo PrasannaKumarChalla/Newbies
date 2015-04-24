@@ -1,0 +1,154 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.s521942.androidproject.ContacInfo.ContactFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v7.widget.CardView
+
+        xmlns:cardview="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_height="225dp"
+
+
+        card_view:cardElevation="40dp"
+        android:layout_gravity="left|top"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textStyle="bold"
+            android:textSize="35dp"
+                       android:textColor="#ff525452"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="                     President"
+            android:fontFamily="@string/abc_action_bar_home_description"
+            android:background="#2e48fd13"
+            android:id="@+id/PresidentBox"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Trivedi Pemmasani"
+            android:textSize="25dp"
+            android:textStyle="normal"
+            android:id="@+id/presidentName"
+           android:layout_marginTop="60dp"
+            android:autoText="false"
+            android:typeface="serif" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="  Mobile:8063682521"
+            android:textSize="20dp"
+            android:id="@+id/PresidentNumber"
+            android:layout_marginTop="116dp"
+            android:typeface="serif" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/PresidentMail"
+            android:text="  Email:siddharth@gmail.com"
+            android:textSize="20dp"
+
+            android:layout_marginTop="180dp" />
+
+
+    </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            xmlns:cardview="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card3"
+            android:layout_width="match_parent"
+            card_view:cardElevation="40dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="40dp"
+            android:layout_height="225dp"
+            card_view:cardCornerRadius="1dp"
+
+
+            android:layout_gravity="left|top"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/card2"
+            android:layout_alignStart="@+id/card2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textStyle="bold"
+                android:textSize="35dp"
+                android:textColor="#ff525452"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="                  Vice President"
+                android:background="#2e48fd13"
+                android:id="@+id/VicePresidentBox"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="  Prassana challa"
+                android:textSize="25dp"
+
+                android:typeface="serif"
+                android:id="@+id/VicePresidentName"
+                android:layout_marginTop="60dp"
+                android:textStyle="normal" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="  Mobile:6673682521"
+                android:textSize="20dp"
+android:typeface="serif"
+                android:id="@+id/VicePresidentNumber"
+                android:layout_marginTop="120dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="  Email: siddharth@gmail.com"
+                android:id="@+id/VicePresidentMail"
+                android:textSize="20dp"
+
+                android:layout_marginTop="180dp" />
+
+
+        </android.support.v7.widget.CardView>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:id="@+id/imageView2"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/contactus" />
+
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:layout_gravity="right|bottom" />
+
+
+
+
+</FrameLayout>
